@@ -6,7 +6,6 @@ exports.get_landing = function(req, res, next) {
 
 
 exports.submit_lead = function(req, res, next) {
-
   return models.Lead.create({
   	email: req.body.lead_email
   }).then(lead => {
@@ -17,8 +16,16 @@ exports.submit_lead = function(req, res, next) {
 exports.show_leads = function(req, res, next) {
 	//asynchronous method defined with sequelize
 	return models.Lead.findAll().then(leads => {
-		console.log(leads.email);
 		res.render('landing', { title: 'Express', leads: leads });
 	})
-  
+}
+
+exports.show_lead = function(req, res, next) {
+	return models.Lead.findOne({
+		where : {
+			id : req.params.lead_id
+		}
+	}).then(lead => {
+		res.render('lead', { lead : lead })
+	})
 }
