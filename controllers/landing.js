@@ -14,9 +14,8 @@ exports.submit_lead = function(req, res, next) {
 }
 
 exports.show_leads = function(req, res, next) {
-	//asynchronous method defined with sequelize
 	return models.Lead.findAll().then(leads => {
-		res.render('landing', { title: 'Express', leads: leads });
+		res.render('lead/leads', { title:'Express', leads: leads });
 	})
 }
 
@@ -27,8 +26,7 @@ exports.show_lead = function(req, res, next) {
 			id : req.params.lead_id
 		}
 	}).then(lead => {
-		res.render('lead', { lead : lead });
-		console.log("lead: ", lead);
+		res.render('lead/lead', { lead : lead });
 	})
 }
 

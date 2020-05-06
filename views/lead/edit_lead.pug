@@ -1,6 +1,23 @@
-extends ../layout
-
-block content
-  form(action='/lead/' + lead.id + '/edit', method="POST")
-    input(name="lead_email", type="email", placeholder="email" value=lead.email)
-    button(type="submit") Save
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Leads")
+  body
+    header
+      .container
+          .row
+            .col-md-6
+              .jumbotron
+                h1.display-4 Edit
+                p.lead
+                  | Please edit your sacred rite below
+                hr.my-4
+                  |
+                form(action="/lead/" + lead.id + "/edit", method="POST")
+                  .form-group
+                    label(for='exampleInputEmail1') New Email address
+                    input#exampleInputEmail1.form-control(name="lead_email" type="email", placeholder="input your essence", value=lead.email)
+                    small#emailHelp.form-text.text-muted Your secret is safe with us
+                  button.btn.btn-primary(type='submit') Save
+    include ../common/footer.pug
+    +footer()
