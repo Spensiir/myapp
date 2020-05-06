@@ -13,6 +13,8 @@ html(lang='en')
               h1.display-4 The Great Library of Leads
               p.lead
                 | Enter your information into the grand database 
+              form(action="/signup" method="POST")
+                button.btn.btn-primary(type="submit") Signup
               hr.my-4
                 |
               form(action="/", method="POST")
@@ -21,6 +23,7 @@ html(lang='en')
                   input#exampleInputEmail1.form-control(name="lead_email" type="email", placeholder="input your essence")
                   small#emailHelp.form-text.text-muted Your secret is safe with us
                 button.btn.btn-primary(type='submit') Submit
+
     include common/footer.pug
     +footer()
     script(src='/javascripts/leads.js')
