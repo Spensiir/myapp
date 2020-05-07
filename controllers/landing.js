@@ -14,6 +14,7 @@ exports.submit_lead = function(req, res, next) {
 }
 
 exports.show_leads = function(req, res, next) {
+	console.log("show_leads is called");
 	return models.Lead.findAll().then(leads => {
 		res.render('lead/leads', { title:'Express', leads: leads });
 	})

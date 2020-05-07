@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Login")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar()
+      .container#landing
+        .row
+          .col-md-6(align="center")
+            .jumbotron
+              h1.display-4 Log in
+              hr.my-4
+                |
+              form(action="/login" method="POST")
+                .form-group
+                  label(for='exampleInputEmail1') Email address
+                  input#exampleInputEmail1.form-control(name="newEmail" type="email", placeholder="input your essence")
+                .form-group
+                  label(for='exampleInputEmail1') Password
+                  input#exampleInputEmail1.form-control(name="newPassword" type="password", placeholder="input your soul")
+                  a(href="/")
+                    button.btn.btn-link(type="submit") forgot password?
+                button.btn.btn-primary.btn-block(type='submit') Submit
+                br
+                br
+                br
+                small New User?
+                br
+                form(action="/signup" method="GET")
+                  button.btn.btn-link(type='submit') Signup
+
+    include ../common/footer.pug
+    +footer()
+    script(src='/javascripts/leads.js')
