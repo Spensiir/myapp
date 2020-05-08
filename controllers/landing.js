@@ -1,7 +1,8 @@
 const models = require('../models');
 
 exports.get_landing = function(req, res, next) {
-  res.render('landing', { title: 'Express' });
+	console.log("call get_landing");
+	res.render('landing', { title: 'Express' });
 }
 
 

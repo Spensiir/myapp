@@ -20,16 +20,10 @@ html(lang='en')
                 .form-group
                   label(for='exampleInputEmail1') Password
                   input#exampleInputEmail1.form-control(name="newPassword" type="password", placeholder="input your soul")
-                  a(href="/")
-                    button.btn.btn-link(type="submit") forgot password?
+                  small #[a(href="/") forgot password?]
                 button.btn.btn-primary.btn-block(type='submit') Submit
                 br
-                br
-                br
-                small New User?
-                br
-                form(action="/signup" method="GET")
-                  button.btn.btn-link(type='submit') Signup
+                small Don't have an account yet? #[a(href="/signup") Signup here!]
 
     include ../common/footer.pug
     +footer()

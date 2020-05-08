@@ -9,20 +9,27 @@ html(lang='en')
       .container#landing
         .row
           .col-md-6(align="center")
-            .jumbotron
+            .jumbotron#landing
               h1.display-4 The Great Library of Leads
               p.lead
                 | Enter your information into the grand database 
-              form(action="/signup" method="GET")
-                button.btn.btn-primary(type="submit") Signup
               hr.my-4
                 |
               form(action="/", method="POST")
                 .form-group
                   label(for='exampleInputEmail1') Email address
-                  input#exampleInputEmail1.form-control(name="lead_email" type="email", placeholder="input your essence")
-                  small#emailHelp.form-text.text-muted Your secret is safe with us
+                  input.form-control(name="lead_email" type="email", placeholder="input your essence")
+                  small.form-text.text-muted Your secret is safe with us
                 button.btn.btn-primary(type='submit') Submit
+              hr.my-4
+                |
+              .row(align="center")
+                .col-sm
+                  form(action="/signup" method="GET")
+                    button.btn.btn-link(type="submit") Signup
+                .col-sm
+                  form(action="/login" method="GET")
+                    button.btn.btn-link(type="submit") Login
 
     include common/footer.pug
     +footer()

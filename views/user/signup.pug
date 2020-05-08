@@ -16,19 +16,16 @@ html(lang='en')
               form(action="/" method="GET")
                 .form-group
                   label(for='exampleInputEmail1') Email address
-                  input#exampleInputEmail1.form-control(name="newEmail" type="email", placeholder="input your essence")
+                  input.form-control(name="newEmail" type="email", placeholder="input your essence")
+                  //, value='', required=true)
                 .form-group
                   label(for='exampleInputEmail1') Password
-                  input#exampleInputEmail1.form-control(name="newPassword" type="password", placeholder="input your soul")
-                  small#emailHelp.form-text.text-muted Your secret is safe with us
+                  input.form-control(name="newPassword" type="password", placeholder="input your soul")
+                  //, value='', required=true)
+                  small.form-text.text-muted Your secret is safe with us
                 button.btn.btn-primary.btn-block(type='submit') Submit
                 br
-                br
-                br
-                small Already have an account?
-                br
-                form(action="/leads" method="GET")
-                  button.btn.btn-link(type='submit') Login
+                small Already have an account? #[a(href="/login") Login in here!]
     include ../common/footer.pug
     +footer()
     script(src='/javascripts/leads.js')

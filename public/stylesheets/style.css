@@ -2,6 +2,11 @@
 	padding-top: 25px;
 }
 
+.jumbotron#landing {
+	padding-bottom:30px;
+}
+
 .jumbotron {
 	padding-bottom:10px;
 }
+
