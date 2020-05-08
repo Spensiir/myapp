@@ -4,8 +4,13 @@ var router = express.Router();
 let landing = require('../controllers/landing.js');
 let user = require('../controllers/user.js');
 
+//user calls
 router.get('/login', user.show_login);
 router.get('/signup', user.show_signup);
+router.post('/login', user.login);
+router.post('/signup', user_signup);
+
+//landing calls
 router.get('/', landing.get_landing);
 router.post('/', landing.submit_lead);
 router.get('/leads', landing.show_leads);

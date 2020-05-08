@@ -9,6 +9,10 @@ exports.show_signup = function(req, res, next) {
 	res.render('user/signup', {formData: {}, errors: {} });
 }
 
-// exports.signup = function(res, req, next) {
-// 	res.render('../leads');
-// }
+exports.signup = function(res, req, next) {
+	res.render();
+}
+
+exports.signup = function(res, req, next) {
+	res.render();
+}
