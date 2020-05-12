@@ -13,13 +13,13 @@ html(lang='en')
               h1.display-4 Sign up
               hr.my-4
                 |
-              form(action="/" method="GET")
+              form(action="/signup" method="POST")
                 .form-group
                   label(for='exampleInputEmail1') Email address
-                  input.form-control(name="newEmail" type="email", placeholder="input your essence", value='', required=true)
+                  input.form-control(name="email" type="email", placeholder="input your essence", value=formData.email, required=true)
                 .form-group
                   label(for='exampleInputEmail1') Password
-                  input.form-control(name="newPassword" type="password", placeholder="input your soul", value='', required=true)
+                  input.form-control(name="password" type="password", placeholder="input your soul", value=formData.email, required=true)
                   small.form-text.text-muted Your secret is safe with us
                 button.btn.btn-primary.btn-block(type='submit') Submit
                 br

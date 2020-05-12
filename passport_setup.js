@@ -1,10 +1,10 @@
 let localStrategy = require('passport-local').Strategy;
 
-let bcrypt = require('bcrpyt');
+let bcrypt = require('bcrypt');
 let models = require('./models')
 
 const validPassword = function(user, password) {
-	return bcrpyt.compareSync(password, user.password);
+	return bcrypt.compareSync(password, user.password);
 }
 
 module.exports = function(passport) {
@@ -14,7 +14,7 @@ module.exports = function(passport) {
   });
 
   	passport.deserializeUser(function(id, done) {
-  		models.User.findOne( {
+  		models.User.findOne({
   			where: {
   				'id': id
   			}
@@ -22,8 +22,8 @@ module.exports = function(passport) {
   			if(user == null) {
   				done(new Error('wrong user id'))
   			}
-  			done(null, User);
-  		}
+  			done(null, user);
+  		})
   	});
 
 
@@ -33,15 +33,15 @@ module.exports = function(passport) {
 	  	passReqToCallback: true
   	},  
   	function(req, email, password, done) {
-	  	return model.User.findOne({
-	  		where {
-	  			'id' = email
+	  	return models.User.findOne({
+	  		where: {
+	  			'email': email
 	  		},
 	  	}).then(user => {
 	  		if (user == null) {
 	  			req.flash('message', 'incorrect credentials.')
 	  			return done(null, false)
-	  		} else if (user.password == null | user.password = undefined) {
+	  		} else if (user.password == null || user.password == undefined) {
 	  			req.flash('message', 'please reset password.')
 	  			return done(null, false)
 	  		} else if (!validPassword(user, password)) {

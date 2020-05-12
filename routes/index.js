@@ -7,8 +7,8 @@ let user = require('../controllers/user.js');
 //user calls
 router.get('/login', user.show_login);
 router.get('/signup', user.show_signup);
-router.post('/login', user.login);
-router.post('/signup', user_signup);
+//router.post('/login', user.login);
+router.post('/signup', user.signup);
 
 //landing calls
 router.get('/', landing.get_landing);

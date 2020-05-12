@@ -8,6 +8,9 @@ var logger = require('morgan');
 let passport = require('passport');
 let session = require('express-session')
 
+var bodyParser = require('body-parser')
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -20,16 +23,19 @@ var app = express();
 // configure the express app
 
 // set 
+app.use(bodyParser.json({ json: "*/*"}))
+app.use(bodyParser.urlencoded({ extended: '1' }))
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: '0' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({secret: 'your essense is hidden'}));
+app.use(session({resave: '1', saveUninitialized: '1', secret: 'your essense is hidden'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
